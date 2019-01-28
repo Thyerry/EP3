@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "pilha.c"
+#define MAXTAM 5000
 
-/*typedef struct
+typedef struct
 {
     int Item[MAXTAM];
     int Topo;
 } pilha;
 
-void pilha_Inicia(pilha *p)
+void criaPilha(pilha *p)
 {
     p->Topo = -1;
 }
 
-int pilha_Vazia(pilha *p)
+int pilhaVazia(pilha *p)
 {
     if (p->Topo == -1)
         return 1;
@@ -22,7 +23,7 @@ int pilha_Vazia(pilha *p)
         return 0;
 }
 
-int pilha_Cheia(pilha *p)
+int pilhaCheia(pilha *p)
 {
     if (p->Topo == MAXTAM - 1)
     {
@@ -34,7 +35,7 @@ int pilha_Cheia(pilha *p)
     }
 }
 
-int pilha_Insere(pilha *p, int x)
+int empilha(pilha *p, int x)
 {
     if(pilha_Cheia(p) == 1){
         printf("Pilha cheia \n");
@@ -46,7 +47,7 @@ int pilha_Insere(pilha *p, int x)
     }
 
 }
-int pilha_Retira(pilha *p){
+int desempilha(pilha *p){
     int aux;
     if(pilha_Vazia(p) == 1)
         printf("Pilha cheia \n");
@@ -58,7 +59,7 @@ int pilha_Retira(pilha *p){
         return aux;
     }
 
-}*/
+}
 
 int main(void) {
 
