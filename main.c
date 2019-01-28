@@ -1,18 +1,71 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAXTAM 100
+#include "pilha.c"
 
-typedef struct {
+/*typedef struct
+{
     int Item[MAXTAM];
     int Topo;
-} TPilha;
+} pilha;
 
-void TPilha_Inicia(TPilha *p){
+void pilha_Inicia(pilha *p)
+{
     p->Topo = -1;
 }
 
-int main()
+int pilha_Vazia(pilha *p)
 {
-    printf("Hello world!\n");
-    return 0;
+    if (p->Topo == -1)
+        return 1;
+
+    else
+        return 0;
+}
+
+int pilha_Cheia(pilha *p)
+{
+    if (p->Topo == MAXTAM - 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int pilha_Insere(pilha *p, int x)
+{
+    if(pilha_Cheia(p) == 1){
+        printf("Pilha cheia \n");
+    }
+    else
+    {
+        p->Topo++;
+        p->Item[p->Topo] = x;
+    }
+
+}
+int pilha_Retira(pilha *p){
+    int aux;
+    if(pilha_Vazia(p) == 1)
+        printf("Pilha cheia \n");
+
+    else
+    {
+        aux = p->Item[p->Topo];
+        p->Topo--;
+        return aux;
+    }
+
+}*/
+
+int main(void) {
+
+  pilha p, q;
+  p = cria_pilha();
+  q = cria_pilha();
+
+  printf("Hello World\n");
+  return 0;
 }
