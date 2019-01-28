@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1514140574 source:c:\users\thyerry\desktop\projetos\ep3\pilha\main.c
+	<stdio.h>
+	<stdlib.h>
+
