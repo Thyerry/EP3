@@ -1,6 +1,6 @@
 #include "lista.h"
 struct elemento{
-  struct aluno dados;
+  int conteudo;
   struct elemento *prox;
 };
 typedef struct elemento Elem;
@@ -42,17 +42,75 @@ int listaVazia(Lista* li){
   
 }
 
-int insereListaInicio(Lista* li, struct aluno al){
+int insereInicio(Lista* li, int novo){
   if (li == NULL) {
       return 0;
   }
   Elem* no = (Elem*) malloc(sizeof(Elem));
   if (no == NULL) {
-    no->dados = al;
+    no->conteudo = novo;
     no->prox = (*li);
     *li = no;
     return 1;
   }
   
+}
+
+int insereFinal(Lista* li, int novo){
+  if (li == NULL) {
+      return 0;
+  }
+  Elem* no = (Elem*) malloc(sizeof(Elem));
+  if (no->prox != NULL) {
+    no->conteudo = novo;
+    no->prox = NULL;
+    if ((*li) == NULL) {
+      *li = no;
+    } else {
+      Elem *aux = *li;
+      while(aux->prox != NULL){
+        aux = aux->prox;
+      }
+      aux->prox = no;
+    }
+    
+    *li = no;
+    return 1;
+  }
   
+}
+
+int insereOrdenado(Lista* li, int novo){
+  if (li == NULL) 
+    return 0;
+  
+  Elem *no = (Elem*) malloc(sizeof(Elem));
+
+  if (no == NULL)
+    return 0;
+
+  no->conteudo = novo;
+
+  if(listaVazia(li)){
+    no->prox = (*li);
+    *li = no;
+    return 1;
+  }
+
+  else {
+    Elem *ant, *atual = *li;
+    while(atual !=NULL && atual->conteudo < novo){
+      ant = atual;
+      atual = atual->prox;
+    }
+    if (atual == *li) {
+      no->prox = (*li);
+      *li = no;
+    } 
+    else {
+      no->prox = ant->prox;
+      ant->prox = no;
+    }
+    return 1;
+  }
 }

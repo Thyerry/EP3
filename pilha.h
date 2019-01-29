@@ -1,9 +1,10 @@
 #include "lista.h"
+#include "lista.c"
 #ifndef PILHA_H_INCLUDED
 #define PILHA_H_INCLUDED
 
 struct {
-  celula l;
+  Elem l;
 } struct_pilha;
 
 typedef struct struct_pilha *pilha;
