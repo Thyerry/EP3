@@ -1,16 +1,13 @@
-#ifndef LISTA_H_INCLUDED
-#define LISTA_H_INCLUDED
-
-struct reg{
-  int conteudo;
-  struct reg *prox;
+struct aluno{
+  int matricula;
+  char nome[30];
+  float f1, f2, f3;
 };
+typedef struct elemento* Lista;
 
-typedef struct reg *celula;
+Lista* criaLista();
+void liberaLista(Lista* li);
+int tamanhoLista(Lista* li);
+int listaVazia(Lista* li);
+int insereLista(Lista* li, struct aluno al);
 
-void insere(celula, int);
-celula cria_celula();
-celula busca(celula, int);
-void removeC(celula, int);
-void removetodos(celula, int);
-#endif // LISTA_H_INCLUDED

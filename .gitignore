@@ -1,1 +1,8 @@
 .vscode
+cabecalho.h
+funcoes.c
+main.exe
+pilha.cbp
+pilha.depend
+obj
+bin
