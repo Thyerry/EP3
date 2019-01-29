@@ -1,3 +1,6 @@
 .vscode
 cabecalho.h
 funcoes.c
+bin
+obj
+pilha.layout
