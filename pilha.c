@@ -1,6 +1,9 @@
 #include "pilha.h"
 #include "lista.h"
 #include <stdlib.h>
+struct {
+  Elem l;
+} struct_pilha;
 
 pilha cria_pilha() {
   pilha p = (pilha) malloc(sizeof(struct_pilha));

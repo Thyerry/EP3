@@ -115,3 +115,64 @@ int insereOrdenado(Lista* li, int novo){
     return 1;
   }
 }
+
+int removeInicio(Lista* li){
+  if (li == NULL) {
+    return 0;
+  }
+  if ((*li) == NULL) {
+    return 0;
+  }
+
+  Elem *no = *li;
+  *li = no->prox;
+  free(no);
+  return 1;
+}
+
+int removeFinal(Lista* li){
+  if (li == NULL) {
+    return 0;
+  }
+  if ((*li) == NULL) {
+    return 0;
+  }
+
+  Elem *ant, *no = *li;
+  while(no->prox != NULL){
+    ant = no;
+    no = no->prox;
+  }
+  if (no == (*li)) {
+    *li = no->prox;
+  }
+  else
+    ant->prox = no->prox;
+  
+  free(no);
+  return 1;
+}
+
+int removeValor(Lista* li, int item){
+  if (li == NULL)
+    return 0;
+  
+  Elem *ant, *no = *li;
+  while(no != NULL && no->conteudo != item){
+    ant = no;
+    no = no->prox;
+  }
+  if(no == NULL) 
+    return 0;
+
+  if(no == *li)
+    *li = no->prox;
+
+  else 
+    ant->prox = no->prox;
+
+  free(no);
+
+  return 1;
+  
+}

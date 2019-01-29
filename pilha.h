@@ -3,11 +3,7 @@
 #ifndef PILHA_H_INCLUDED
 #define PILHA_H_INCLUDED
 
-struct {
-  Elem l;
-} struct_pilha;
-
-typedef struct struct_pilha *pilha;
+typedef struct struct_pilha* pilha;
 
 pilha cria_pilha();
 void empilha(pilha, int );
