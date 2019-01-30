@@ -2,12 +2,16 @@
 #include <stdlib.h>
 #include "pilha.h"
 #include "lista.h"
-typedef struct
-{
+struct filaS {
     int conteudo;
     int repeticao;
-}Carreira;
+    struct filaS *prox;
+};
+typedef struct filaS* Fila;
+typedef struct filaS ElemF;
 
-int maiorPiramide;
+Fila* criaFila();
+int insereFila(Fila* f, int, int);
+int removeFila(Fila* f);
 int piramide(Lista* l);
-void RLE(Lista* l);
+Fila* RLE(Lista* l);

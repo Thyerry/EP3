@@ -32,7 +32,7 @@ int pilhaVazia(Pilha* p){
   if (p == NULL) {
     return 1;
   }
-  if(*pi == NULL){
+  if(*p == NULL){
     return 0;
   }
   return 0;
@@ -56,13 +56,13 @@ void empilha(Pilha* p, int novo) {
   if (p == NULL) 
     return 0;
   
-  ElemP* no = (ElemP*) malloc(sizeof(ElemP))
+  ElemP* no = (ElemP*) malloc(sizeof(ElemP));
   if (no == NULL)
     return 0;
 
   no->conteudo = novo;
-  no->prox = (*pi);
-  *pi = no;
+  no->prox = (*p);
+  *p = no;
   return 1;
   
 }
@@ -82,6 +82,6 @@ void desempilha(Pilha* p){
 int consultaTopo(Pilha* p){
   if(p == NULL) return 0;
   if((*p) == NULL) return 0;
-  int topo = (*pi)->conteudo;
+  int topo = (*p)->conteudo;
   return topo;
 }

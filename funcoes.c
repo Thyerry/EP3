@@ -7,7 +7,55 @@
 */
 
 #include "funcoes.h"
+
 maiorPiramide = 0;
+Fila* criaFila(){
+    Fila f = (Fila*) malloc(sizeof(Fila));
+    if(f !=NULL)
+        *f = NULL;
+    return f;
+}
+
+int insereFila(Fila* f, int novo, int qtd){
+  if (f == NULL) {
+      return 0;
+  }
+  ElemF* no = (ElemF*) malloc(sizeof(ElemF));
+  if (no->prox != NULL) {
+
+    no->conteudo = novo;
+    no->repeticao= qtd;
+    no->prox = NULL;
+
+    if ((*f) == NULL) {
+      *f = no;
+    } else {
+      ElemF *aux = *f;
+      while(aux->prox != NULL){
+        aux = aux->prox;
+      }
+      aux->prox = no;
+    }
+    
+    *f = no;
+    return 1;
+  }
+  
+}
+
+int removeFila(Fila* f){
+  if (f == NULL) {
+    return 0;
+  }
+  if ((*f) == NULL) {
+    return 0;
+  }
+
+  ElemF *no = *f;
+  *f = no->prox;
+  free(no);
+  return 1;
+}
 /**
  * I-1
 */
@@ -67,36 +115,49 @@ int piramide(Lista* l){
     return tamanho;
 }
 
-void RLE(Lista* l) {
-    if (l != NULL) {
+
+/**
+ * RLE
+ * Cria uma fila que no formato Run-Length Encoding
+ * (RLE, mais informações https://www.fileformat.info/mirror/egff/ch09_03.htm)
+ * Recebe a lista com valores inteiros e devolve uma fila com
+ * os valores no formato de RLE.
+ * 
+*/
+Fila* RLE(Lista* l) {
+    if (l != NULL) {            // Verifica se a lista não é nula 
         return 0;
     }
     if((*l) != NULL) {
         return 0;
     }
     
-    FILE *arq_RLE = fopen("RLE.dat", "w");
+    //FILE *arq_RLE = fopen("RLE.dat", "w");
     ElemL* aux = *l;
-    Carreira c;
-    c.conteudo = aux->conteudo;
-    c.repeticao = 1;
+    Fila f = criaFila();
+    int valor = aux->conteudo;                      //variavel que recebe o valor atual na lista conforme ela for percorrida
+    int rec = 1;                                    //variavel que conta as ocorrencias seguidas do em valor
 
     while(aux != NULL){
-        if(c.conteudo == aux->conteudo){
-            c.repeticao++;
-            if(aux->prox == NULL){
-                printf("%d.%d ", c.repeticao, c.conteudo);
+        if(valor == aux->conteudo){                 //identifica se o valor já é repetido
+            rec++;
+            if(aux->prox == NULL){                  //se o proximo valor for nulo, printa e insere na fila o valor e rec atuais.
+                printf("%d.%d ", rec, valor);
+                insereFila(f, valor, rec);
+                aux = aux->prox;
             }
             else
-                aux = aux->prox;
+                aux = aux->prox;                    //se não, vai para o proximo item da lista.
         }
-        else{
-            printf("%d.%d ", c.repeticao, c.conteudo);
-            c.conteudo = aux->conteudo;
-            c.repeticao = 1;
+        else{                                       //se o valor não for repetido, printa, insere na fila e continua a percorrer a lista.
+            printf("%d.%d ", rec, valor);       
+            insereFila(f, valor, rec);
+            valor = aux->conteudo;
+            rec = 1;
             aux = aux->prox;
         }
     }
     
-    fclose(arq_RLE);
+    /*fclose(arq_RLE);*/
+    return f;
 }
