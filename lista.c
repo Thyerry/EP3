@@ -1,11 +1,5 @@
 #include "lista.h"
 
-struct elementoL{
-  int conteudo;
-  struct elementoL *prox;
-};
-typedef struct elemento ElemL;
-
 Lista* criaLista(){
   Lista* li = (Lista*) malloc(sizeof(Lista));
   if(li != NULL)

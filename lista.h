@@ -1,6 +1,10 @@
-#include "lista.c"
+struct elementoL{
+  int conteudo;
+  struct elementoL *prox;
+};
 
 typedef struct elementoL* Lista;
+typedef struct elementoL ElemL;
 
 Lista* criaLista();
 ElemL* busca(Lista* li, int item);

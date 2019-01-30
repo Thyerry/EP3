@@ -1,7 +1,27 @@
+/**
+ * Exercício Programa 3: Análise de sequências
+ * Aluno: Thyérry Nunes dos Santos
+ * Universidade Federal Rural de Pernambuco
+ * Disciplina: Algoritmos e Estruturas de Dados
+ * Docente: Rodrigo de Souza
+*/
+
 #include "funcoes.h"
 maiorPiramide = 0;
+/**
+ * I-1
+*/
 
+/**
+ * I-2
+*/
 
+/**
+ * I-3
+ * A função piramide recebe uma lista de numeros inteiros
+ * e devolve o valor do tamanho da maior piramide 
+ * encontrada nessa lista.
+*/
 int piramide(Lista* l){
 
     if(l == NULL) return 0;
@@ -9,8 +29,8 @@ int piramide(Lista* l){
 
     Pilha *p = criaPilha();
     ElemL* aux = *l;
-    empilha(p, l->conteudo);
-    int cont, tamanho;
+    empilha(p, aux->conteudo);
+    int cont = 1, tamanho;
 
     while(aux != NULL){
         if (aux->conteudo > consultaTopo(p)) {              // Subida da piramide
@@ -47,3 +67,36 @@ int piramide(Lista* l){
     return tamanho;
 }
 
+void RLE(Lista* l) {
+    if (l != NULL) {
+        return 0;
+    }
+    if((*l) != NULL) {
+        return 0;
+    }
+    
+    FILE *arq_RLE = fopen("RLE.dat", "w");
+    ElemL* aux = *l;
+    Carreira c;
+    c.conteudo = aux->conteudo;
+    c.repeticao = 1;
+
+    while(aux != NULL){
+        if(c.conteudo == aux->conteudo){
+            c.repeticao++;
+            if(aux->prox == NULL){
+                printf("%d.%d ", c.repeticao, c.conteudo);
+            }
+            else
+                aux = aux->prox;
+        }
+        else{
+            printf("%d.%d ", c.repeticao, c.conteudo);
+            c.conteudo = aux->conteudo;
+            c.repeticao = 1;
+            aux = aux->prox;
+        }
+    }
+    
+    fclose(arq_RLE);
+}
