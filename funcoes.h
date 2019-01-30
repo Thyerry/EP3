@@ -9,7 +9,7 @@ struct filaS {
 };
 typedef struct filaS* Fila;
 typedef struct filaS ElemF;
-
+ElemL *tb;
 Fila* criaFila();
 int insereFila(Fila* f, int, int);
 int removeFila(Fila* f);

@@ -7,7 +7,7 @@
 */
 
 #include "funcoes.h"
-
+ElemL *tb;
 maiorPiramide = 0;
 Fila* criaFila(){
     Fila f = (Fila*) malloc(sizeof(Fila));
@@ -58,8 +58,13 @@ int removeFila(Fila* f){
 }
 /**
  * I-1
+ * hash table pra ver quantas ocorrencias de um deterteminado valor existem num a lista
 */
-
+void contabiliza(Lista* l){
+    ElemL *cont;
+    cont = tb;
+    while(p != NULL)
+}
 /**
  * I-2
 */
