@@ -1,6 +1,3 @@
-#include "lista.h"
-#include "lista.c"
-
 typedef struct elementoP* Pilha;
 
 Pilha* criaPilha();

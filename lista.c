@@ -15,7 +15,7 @@ Lista* criaLista(){
   return li;
 }
 
-ElemL busca(Lista* li, int item){
+ElemL* busca(Lista* li, int item){
   ElemL *resultado = *li;
   while(resultado != NULL && resultado->conteudo != item)
     resultado = resultado->conteudo;
