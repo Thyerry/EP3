@@ -1,6 +1,7 @@
-typedef struct elemento* Lista;
+typedef struct elementoL* Lista;
 
 Lista* criaLista();
+ElemL busca(Lista* li, int item);
 void liberaLista(Lista* li);
 int tamanhoLista(Lista* li);
 int listaVazia(Lista* li);

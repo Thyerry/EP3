@@ -1,14 +1,11 @@
 #include "lista.h"
 #include "lista.c"
-#ifndef PILHA_H_INCLUDED
-#define PILHA_H_INCLUDED
 
-typedef struct struct_pilha* pilha;
+typedef struct elementoP* Pilha;
 
-pilha cria_pilha();
-void empilha(pilha, int );
-int desempilha(pilha);
-int vazia(pilha);
+Pilha* criaPilha();
+int esvazia(Pilha* p);
+void empilha(Pilha* p, int );
+int desempilha(Pilha* p);
 
-#endif // PILHA_H_INCLUDED
-/*dale dale dale*/
+
