@@ -1,5 +1,5 @@
 struct elementoL{
-  int conteudo;
+  int conteudo, ocorrencia;
   struct elementoL *prox;
 };
 
@@ -7,7 +7,6 @@ typedef struct elementoL* Lista;
 typedef struct elementoL ElemL;
 
 Lista* criaLista();
-ElemL* busca(Lista* li, int item);
 void liberaLista(Lista* li);
 int tamanhoLista(Lista* li);
 int listaVazia(Lista* li);

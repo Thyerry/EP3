@@ -161,3 +161,5 @@ Fila* RLE(Lista* l) {
     /*fclose(arq_RLE);*/
     return f;
 }
+
+//Escolhas erradas me trouxeram aqui
