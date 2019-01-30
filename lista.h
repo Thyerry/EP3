@@ -1,4 +1,5 @@
 #include "lista.c"
+
 typedef struct elementoL* Lista;
 
 Lista* criaLista();

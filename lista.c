@@ -1,5 +1,4 @@
 #include "lista.h"
-#include <stdlib.h>
 
 struct elementoL{
   int conteudo;

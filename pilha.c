@@ -79,9 +79,9 @@ void desempilha(Pilha* p){
     return 1;
 }
 
-int consultaTopo(Pilha* p, int topo){
+int consultaTopo(Pilha* p){
   if(p == NULL) return 0;
   if((*p) == NULL) return 0;
-  topo = (*pi)->conteudo;
-  return 1;
+  int topo = (*pi)->conteudo;
+  return topo;
 }
