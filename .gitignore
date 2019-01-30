@@ -1,6 +1,6 @@
 .vscode
-cabecalho.h
-funcoes.c
+c.h
+f.c
 bin
 obj
 pilha.layout

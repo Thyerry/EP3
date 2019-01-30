@@ -4,8 +4,11 @@
 typedef struct elementoP* Pilha;
 
 Pilha* criaPilha();
-int esvazia(Pilha* p);
+void esvazia(Pilha* p);
+int tamanhoPilha(Pilha* p);
+int pilhaVazia(Pilha* p);
 void empilha(Pilha* p, int );
-int desempilha(Pilha* p);
+void desempilha(Pilha* p);
+int consulta(Pilha* p);
 
 
