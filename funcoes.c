@@ -8,16 +8,12 @@
 
 #include "funcoes.h"
 
-
-
-ElemL **tb;
-tb = (ElemL**) malloc(M * sizeof(ElemL *));
-
 maiorPiramide = 0;
 Fila* criaFila(){
     Fila f = (Fila*) malloc(sizeof(Fila));
-    if(f !=NULL)
+    if(f !=NULL){
         *f = NULL;
+    }
     return f;
 }
 

@@ -3,6 +3,7 @@
 #include "pilha.h"
 #include "lista.h"
 #define M 19
+#define TAMANHO_LISTA 20000
 
 struct filaS {
     int conteudo;
