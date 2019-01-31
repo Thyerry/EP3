@@ -1,4 +1,6 @@
 #include "lista.h"
+#include <stdio.h>
+
 
 Lista* criaLista(){
   Lista* li = (Lista*) malloc(sizeof(Lista));

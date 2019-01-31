@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 struct elementoL{
   int conteudo, ocorrencia;
   struct elementoL *prox;

@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "pilha.h"
 #include "lista.h"
+#define M 19
+
 struct filaS {
     int conteudo;
     int repeticao;
@@ -9,9 +11,12 @@ struct filaS {
 };
 typedef struct filaS* Fila;
 typedef struct filaS ElemF;
-ElemL *tb;
+
+ElemL **tb;
 Fila* criaFila();
 int insereFila(Fila* f, int, int);
 int removeFila(Fila* f);
+void contabiliza(Lista* l, int);
+
 int piramide(Lista* l);
 Fila* RLE(Lista* l);

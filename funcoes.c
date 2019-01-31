@@ -7,7 +7,12 @@
 */
 
 #include "funcoes.h"
-ElemL *tb;
+
+
+
+ElemL **tb;
+tb = (ElemL**) malloc(M * sizeof(ElemL *));
+
 maiorPiramide = 0;
 Fila* criaFila(){
     Fila f = (Fila*) malloc(sizeof(Fila));
@@ -60,10 +65,22 @@ int removeFila(Fila* f){
  * I-1
  * hash table pra ver quantas ocorrencias de um deterteminado valor existem num a lista
 */
-void contabiliza(Lista* l){
-    ElemL *cont;
-    cont = tb;
-    while(p != NULL)
+
+void contabiliza(Lista* l, int ch){
+    
+    int h = ch%M;
+    ElemL *p = tb[h]; 
+    while (p != NULL && p->conteudo != ch)
+       p = p->prox;
+    if (p != NULL) 
+       p->ocorrencia += 1;
+    else {
+       p = malloc (sizeof (ElemL));
+       p->conteudo = ch;
+       p->ocorrencia = 1;
+       p->prox = tb[h];       
+       tb[h] = p;       
+    }
 }
 /**
  * I-2
